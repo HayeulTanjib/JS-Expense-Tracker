@@ -12,6 +12,7 @@ let saveInput = document.getElementById('save_input');
 let saveBtn = document.getElementById('save_btn');
 let savingAmount = document.getElementById('saving_amount');
 let remainingBalance = document.getElementById('remaining_balance');
+let errMsg2 = document.getElementById('error_msg2');
 
   
 
@@ -73,9 +74,18 @@ function savingCalculation(){
     
     let restBalance = (getBalance - calcSavings);
 
-    savingAmount.innerText = calcSavings;
-    remainingBalance.innerText = restBalance;
-    
+    if (calcSavings > getBalance){
+        errMsg2.innerText = `ERROR! You wanna Save: ${calcSavings} but your Balance: ${getBalance}`;
+        savingAmount.innerText = '';
+        remainingBalance.innerText = '';
+    }
+    else{
+
+        savingAmount.innerText = calcSavings;
+        remainingBalance.innerText = restBalance;
+
+        errMsg2.innerText = '';
+    }
  }
 
 
