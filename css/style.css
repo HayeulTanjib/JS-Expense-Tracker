@@ -1,3 +1,22 @@
 .money_pic{
     height: 650px;
 }
+
+@media only screen and (min-width: 600px) {
+    .money_pic{
+        height: 400px;
+        padding-bottom: 30px;
+    }
+  }
+
+@media only screen and (min-width: 768px) {
+    .money_pic{
+        height: 500px;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .money_pic{
+        height: 650px;
+    }
+  }
