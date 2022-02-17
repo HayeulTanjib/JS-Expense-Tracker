@@ -1,4 +1,4 @@
-//Declaring inputs and buttons
+//Declaring inputs, buttons and error msg
 let incomeInput = document.getElementById('income_input');
 let foodInput = document.getElementById('food_input');
 let rentInput = document.getElementById('rent_input');
@@ -16,7 +16,7 @@ let errMsg2 = document.getElementById('error_msg2');
 
   
 
-//Expense and Balance Calculation
+//==================================Expense and Balance Section=====================================
 function moneyCalculation() {
    
     let foodVal = Number(foodInput.value);
@@ -24,9 +24,10 @@ function moneyCalculation() {
     let clothVal = Number(clothInput.value);
     let incomeVal = Number(incomeInput.value);
 
-
+    //total expense and balance calculation
     let totalExpense = (foodVal + rentVal + clothVal);
     let balance = (incomeVal - totalExpense);
+
 
     //Error Handling
     if(totalExpense > incomeVal){
@@ -48,21 +49,21 @@ function moneyCalculation() {
     }
 
 
-// Calculation - Handler
+//Expense and Balance Calculation - Handler
 calcBtn.addEventListener('click',function(){
     moneyCalculation();
 })
 
 
-//Savings Section
+//================================= Savings Section ======================================
 
-//savings handler
+//Savings handler
 saveBtn.addEventListener('click',function(){
     savingCalculation();
 })
 
  
-//savings calculation
+//Savings calculation
 function savingCalculation(){
     let getBalance = moneyCalculation()
     let getIncomeVal = Number(incomeInput.value);
@@ -71,19 +72,18 @@ function savingCalculation(){
     
     //Savings Percentage Calculation
     let calcSavings = ((GetSaveInput / 100) * getIncomeVal) 
-    
+    //Remaining total balance
     let restBalance = (getBalance - calcSavings);
 
+    //Error Handling
     if (calcSavings > getBalance){
         errMsg2.innerText = `ERROR! You wanna Save: ${calcSavings} but your Balance: ${getBalance}`;
         savingAmount.innerText = '';
         remainingBalance.innerText = '';
     }
     else{
-
         savingAmount.innerText = calcSavings;
         remainingBalance.innerText = restBalance;
-
         errMsg2.innerText = '';
     }
  }

@@ -2,6 +2,7 @@
     height: 650px;
 }
 
+/* Responsiveness */
 @media only screen and (min-width: 600px) {
     .money_pic{
         height: 400px;
