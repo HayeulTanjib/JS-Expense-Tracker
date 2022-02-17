@@ -28,21 +28,25 @@ function moneyCalculation() {
     let totalExpense = (foodVal + rentVal + clothVal);
     let balance = (incomeVal - totalExpense);
 
+    
 
     //Error Handling
-    if(totalExpense > incomeVal){
-        errMsg.innerText = "Expense money can't excess Income!";
+    if(((incomeVal) | (foodVal) | (rentVal) | (clothVal)) < 0 ){
+        errMsg.innerText = "Please provide Positive Number!";
+        saveInput.disabled = true;
     }
      else if ((isNaN(totalExpense) | isNaN(balance) | isNaN(incomeVal))){
         errMsg.innerText = "Please input Number!";
+        saveInput.disabled = true;
      }
-     else if (((incomeVal) | (foodVal) | (rentVal) | (clothVal)) < 0 ){
-        errMsg.innerText = "Please provide Positive Number!";
+     else if (totalExpense > incomeVal){
+        errMsg.innerText = "Expense money can't excess Income!";
+        saveInput.disabled = true;
      }
      else{
         totalExpend.innerText = totalExpense;
         balanceMoney.innerText = balance;
-
+        saveInput.disabled = false;
         errMsg.innerText = '';
      }     
      return balance;

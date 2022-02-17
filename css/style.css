@@ -2,6 +2,10 @@
     height: 650px;
 }
 
+section{
+  height: 100vh;
+}
+
 /* Responsiveness */
 @media only screen and (min-width: 600px) {
     .money_pic{
